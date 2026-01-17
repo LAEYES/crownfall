@@ -9,8 +9,9 @@ python main.py
 ```
 
 ## What this prototype does
-- Turn-based kingdom simulation
-- Resources, population, morale
+- Turn-based kingdom simulation with seasonal effects
+- Player actions (build, feast, tax, recruit)
+- Resources, population, morale, loyalty, and army tracking
 - Dynamic events
 - Chronicle generation
 
