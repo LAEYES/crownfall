@@ -1,5 +1,5 @@
 
-# Crownfall – Prototype v0.1
+# Crownfall – Prototype v0.4
 
 Minimal playable prototype (simulation-first).
 
@@ -9,8 +9,10 @@ python main.py
 ```
 
 ## What this prototype does
-- Turn-based kingdom simulation
-- Resources, population, morale
+- Turn-based kingdom simulation with seasonal effects
+- Text-based UI with status bars and council menu choices
+- Player actions (build, feast, tax, recruit, parade, aid)
+- Resources, population, morale, loyalty, unrest, and stability tracking
 - Dynamic events
 - Chronicle generation
 
