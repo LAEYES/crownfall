@@ -10,7 +10,6 @@ python main.py
 
 ## What this prototype does
 - Turn-based kingdom simulation with seasonal effects
-- Text-based UI with status bars and council menu choices
 - Player actions (build, feast, tax, recruit)
 - Resources, population, morale, loyalty, and army tracking
 - Dynamic events
