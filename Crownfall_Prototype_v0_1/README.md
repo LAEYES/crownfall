@@ -1,5 +1,5 @@
 
-# Crownfall – Prototype v0.1
+# Crownfall – Prototype v0.3
 
 Minimal playable prototype (simulation-first).
 

@@ -1,4 +1,6 @@
 
+import os
+
 from engine.kingdom import Kingdom
 from engine.events import check_events
 from engine.chronicle import Chronicle
@@ -47,6 +49,7 @@ for turn in range(1, 101):
     chronicle.log_turn(kingdom)
 
     kingdom.display()
+    pause()
 
     if kingdom.collapsed:
         print("\n💀 The kingdom has collapsed.")
