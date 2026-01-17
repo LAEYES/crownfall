@@ -11,9 +11,6 @@ class Kingdom:
         self.farms = 1
         self.mines = 1
         self.army = 5
-        self.housing = 1
-        self.unrest = 10
-        self.stability = 60
         self.tax_rate = 1.0
         self.collapsed = False
 
@@ -30,7 +27,6 @@ class Kingdom:
         gold_gain = 4 * self.mines * infra_factor * self.tax_rate
         self.food += food_gain * morale_factor
         self.gold += int(gold_gain * morale_factor)
-        self.population += int(self.housing * 0.3 * morale_factor)
 
     def consume(self, season):
         season_food_need = {"Winter": 1.1}
@@ -38,10 +34,8 @@ class Kingdom:
         if self.tax_rate > 1.2:
             self.morale -= 2
             self.loyalty -= 1
-            self.unrest += 2
         if self.tax_rate < 0.9:
             self.morale += 1
-            self.unrest = max(0, self.unrest - 1)
         if self.food < 0:
             self.morale -= 10
             self.population -= 2
@@ -58,11 +52,6 @@ class Kingdom:
             self.gold -= 30
             self.mines += 1
             chronicle.add("Miners open a new vein of ore.")
-        elif action == "build_housing" and self.gold >= 35:
-            self.gold -= 35
-            self.housing += 1
-            self.morale += 3
-            chronicle.add("New housing districts welcome more families.")
         elif action == "build_infra" and self.gold >= 40:
             self.gold -= 40
             self.infrastructure += 1
@@ -72,49 +61,25 @@ class Kingdom:
             self.food -= 15
             self.morale += 8
             self.loyalty += 4
-            self.unrest = max(0, self.unrest - 2)
             chronicle.add("A grand feast lifts spirits across the realm.")
         elif action == "tax" and self.loyalty > 10:
             self.gold += 15
             self.tax_rate = min(self.tax_rate + 0.1, 1.5)
             self.morale -= 4
             self.loyalty -= 3
-            self.unrest += 2
             chronicle.add("Extra taxes fill the treasury but anger the people.")
         elif action == "recruit" and self.gold >= 20:
             self.gold -= 20
             self.army += 4
             self.fear += 2
-            self.stability += 1
             chronicle.add("New soldiers bolster the royal army.")
-        elif action == "parade" and self.gold >= 10:
-            self.gold -= 10
-            self.morale += 4
-            self.fear = max(0, self.fear - 1)
-            chronicle.add("A royal parade inspires confidence in the crown.")
-        elif action == "aid" and self.gold >= 15:
-            self.gold -= 15
-            self.unrest = max(0, self.unrest - 4)
-            self.loyalty += 2
-            chronicle.add("Relief aid calms unrest in the provinces.")
         else:
             chronicle.add("The council postpones major decisions.")
-
-    def end_turn_adjustments(self, chronicle):
-        self.stability = max(0, min(100, self.stability + (self.loyalty - 50) // 10))
-        if self.unrest > 60:
-            self.morale -= 4
-            self.stability -= 3
-            chronicle.add("Riots erupt, shaking the kingdom's stability.")
-        if self.stability < 20:
-            self.collapsed = True
-            chronicle.add("The kingdom splinters under instability.")
 
     def display(self):
         print(
             "Pop:{pop} Food:{food} Gold:{gold} Morale:{morale} Loyalty:{loyalty} "
-            "Army:{army} Farms:{farms} Mines:{mines} Infra:{infra} Housing:{housing} "
-            "Unrest:{unrest} Stability:{stability}"
+            "Army:{army} Farms:{farms} Mines:{mines} Infra:{infra}"
             .format(
                 pop=self.population,
                 food=int(self.food),
@@ -125,8 +90,5 @@ class Kingdom:
                 farms=self.farms,
                 mines=self.mines,
                 infra=self.infrastructure,
-                housing=self.housing,
-                unrest=self.unrest,
-                stability=self.stability,
             )
         )

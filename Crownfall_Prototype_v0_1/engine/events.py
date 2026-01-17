@@ -15,11 +15,6 @@ def check_events(kingdom, chronicle, season):
         kingdom.fear += 5
         chronicle.add("Authority is enforced by fear.")
 
-    if kingdom.unrest > 50 and random.random() < 0.2:
-        kingdom.gold = max(0, kingdom.gold - 10)
-        kingdom.stability -= 4
-        chronicle.add("Civil unrest disrupts tax collection.")
-
     if season == "Winter" and random.random() < 0.2:
         kingdom.morale -= 3
         chronicle.add("Blizzards disrupt trade and morale.")
@@ -43,11 +38,3 @@ def check_events(kingdom, chronicle, season):
         kingdom.army -= 1
         kingdom.morale += 2
         chronicle.add("The army drills in the countryside, boosting morale.")
-
-    if random.random() < 0.1 and kingdom.infrastructure > 1:
-        kingdom.infrastructure += 1
-        chronicle.add("Artisans improve infrastructure with clever designs.")
-
-    if random.random() < 0.08 and kingdom.housing > 0:
-        kingdom.population += 2
-        chronicle.add("Settlers arrive seeking new homes in the kingdom.")
