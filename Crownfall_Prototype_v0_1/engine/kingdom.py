@@ -39,6 +39,7 @@ class Kingdom:
         if self.food < 0:
             self.morale -= 10
             self.population -= 2
+            self.unrest += 3
         if self.morale <= 0 or self.population <= 0:
             self.collapsed = True
 
