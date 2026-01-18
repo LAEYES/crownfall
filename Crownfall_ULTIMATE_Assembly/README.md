@@ -14,3 +14,6 @@ All systems are modular, extensible, and ready for content.
 ## Run (dev)
 pip install pygame
 python main.py
+
+## Assets
+All art assets live in the `assets/` directory, keeping the root directory free of duplicates.
