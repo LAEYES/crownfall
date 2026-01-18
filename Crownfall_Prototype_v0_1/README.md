@@ -1,5 +1,5 @@
 
-# Crownfall – Prototype v0.5
+# Crownfall – Prototype v0.3
 
 Minimal playable prototype (simulation-first).
 
@@ -10,9 +10,8 @@ python main.py
 
 ## What this prototype does
 - Turn-based kingdom simulation with seasonal effects
-- Text-based UI with status bars, focus policy, and council menu choices
-- Player actions (build, feast, tax, recruit, parade, aid, policy focus)
-- Resources, population, morale, loyalty, unrest, stability, and focus tracking
+- Player actions (build, feast, tax, recruit)
+- Resources, population, morale, loyalty, and army tracking
 - Dynamic events
 - Chronicle generation
 
