@@ -34,6 +34,7 @@ def choose_action(turn):
 
 kingdom = Kingdom()
 chronicle = Chronicle()
+total_weeks = get_config()
 
 print("=== Crownfall Prototype v0.2 ===")
 
